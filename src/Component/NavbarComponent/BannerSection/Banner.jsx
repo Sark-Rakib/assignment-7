@@ -183,7 +183,7 @@ const Banner = ({ customerPromise }) => {
                     key={task.id}
                     className="flex justify-between items-center bg-white p-2 rounded shadow"
                   >
-                    <span>{task.title}</span>
+                    <span className="font-semibold">{task.title}</span>
                   </div>
                 ))}
               </div>
