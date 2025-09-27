@@ -4,7 +4,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="navbar max-w-[1280px] mx-auto flex justify-between items-center p-4">
+      <div className="navbar max-w-[1310px] mx-auto flex justify-between items-center p-4">
         <a className="font-bold text-xl">CS — Ticket System</a>
 
         <div className="hidden md:flex items-center gap-6">
