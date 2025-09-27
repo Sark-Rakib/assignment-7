@@ -20,6 +20,10 @@ const Banner = ({ customerPromise }) => {
       setInProgressTasks([...inProgressTasks, customer]);
       setInProgressCount(inProgressCount + 1);
 
+      const updatedCustomerData = customerData.filter(
+        (t) => t.id !== customer.id
+      );
+      setCustomerData(updatedCustomerData);
       toast.info("In-Progress", {
         position: "top-right",
       });
@@ -152,18 +156,22 @@ const Banner = ({ customerPromise }) => {
 
           {/* Right column */}
           <div>
-            <div className="bg-gray-100 rounded-lg p-6">
+            <div className="bg-white rounded-lg p-6">
               <h2 className="text-xl font-bold mb-4">Task Status</h2>
-              {inProgressTasks.length === 0 && <p>No tasks added yet.</p>}
+              {inProgressTasks.length === 0 && (
+                <p className="text-[#627382]">
+                  Select a ticket to add to Task Status
+                </p>
+              )}
               <div className="space-y-2">
                 {inProgressTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex justify-between items-center bg-white p-2 rounded shadow"
+                    className="flex justify-between items-center bg-[#E0E7FF] p-2 rounded shadow"
                   >
                     <span className="font-semibold">{task.title}</span>
                     <button
-                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                      className="bg-[#02A53B] text-white px-3 py-1 rounded hover:bg-green-400"
                       onClick={() => handleComplete(task.id)}
                     >
                       Complete
@@ -174,16 +182,18 @@ const Banner = ({ customerPromise }) => {
             </div>
 
             {/* Resolved List */}
-            <div className="bg-gray-200 rounded-lg p-6 mt-6">
+            <div className=" rounded-lg  mt-6">
               <h2 className="text-xl font-bold mb-4">Resolved Tasks</h2>
-              {resolvedTasks.length === 0 && <p>No resolved tasks yet.</p>}
+              {resolvedTasks.length === 0 && (
+                <p className="text-[#627382]">No resolved tasks yet</p>
+              )}
               <div className="space-y-2">
                 {resolvedTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex justify-between items-center bg-white p-2 rounded shadow"
+                    className="flex justify-between items-center bg-[#E0E7FF] p-2 rounded shadow"
                   >
-                    <span className="font-semibold">{task.title}</span>
+                    <span className="font-semibold p-2">{task.title}</span>
                   </div>
                 ))}
               </div>
