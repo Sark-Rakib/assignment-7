@@ -161,7 +161,7 @@ const Banner = ({ customerPromise }) => {
                     key={task.id}
                     className="flex justify-between items-center bg-white p-2 rounded shadow"
                   >
-                    <span>{task.title}</span>
+                    <span className="font-semibold">{task.title}</span>
                     <button
                       className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
                       onClick={() => handleComplete(task.id)}
